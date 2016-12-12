@@ -2,16 +2,23 @@
   <div id="app">
     <img src="./assets/logo.png">
     <hello></hello>
+    <echarts-demo></echarts-demo>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
+import ECharts from 'vue-echarts/components/ECharts.vue'
+import EchartsDemo from './components/EchartsDemo'
+console.log(ECharts)
+import Vue from 'vue'
+Vue.component('chart', ECharts)
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Hello,
+    'echarts-demo': EchartsDemo
   }
 }
 </script>
