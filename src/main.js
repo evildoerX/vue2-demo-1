@@ -3,10 +3,11 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import locale from 'element-ui/lib/locale/lang/zh-CN'
 import App from './App'
 
 // 完整引入Element
-Vue.use(ElementUI)
+Vue.use(ElementUI, { locale })
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
