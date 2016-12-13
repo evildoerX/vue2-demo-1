@@ -1,10 +1,44 @@
 <template>
-<chart :options="polar"></chart>
+  <div>
+    <el-row>
+      <el-col :span="24"><chart :options="polar"></chart></el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="8">
+        <el-button>默认按钮</el-button>
+        <el-button type="primary">主要按钮</el-button>
+        <el-button type="text">文字按钮</el-button>
+      </el-col>
+      <el-col :span="8">
+        <el-button type="primary" icon="search">搜索</el-button></el-col>
+      <el-col :span="8"></el-col>
+    </el-row>
+  </div>
 </template>
  
 <style>
-.echarts {
-  height: 300px;
+.el-row {
+  margin-bottom: 20px;
+}
+.el-col {
+  border-radius: 4px;
+}
+.bg-purple-dark {
+  background: #99a9bf;
+}
+.bg-purple {
+  background: #d3dce6;
+}
+.bg-purple-light {
+  background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+.row-bg {
+  padding: 10px 0;
+  background-color: #f9fafc;
 }
 </style>
  
