@@ -1,14 +1,18 @@
 <template>
   <div id="app">
-    <top-nav/>
-
-    <el-row type="flex" class="row-bg" justify="space-around">
-      <el-col :span="12">
-        <echarts-demo/>
+    <top-nav></top-nav>
+    <el-row type="flex" class="row-bg blow-top-nav" justify="space-around">
+      <el-col :span="3">
+        <left-nav></left-nav>
       </el-col>
-      <el-col :span="12">
-        <yes-or-no/>
+      <el-col :span="20">
+        <el-card class="box-card">
+          <transition name='fade'>
+            <router-view></router-view>
+          </transition>
+        </el-card>
       </el-col>
+      <!--<echarts-demo></echarts-demo>-->
     </el-row>
 
   </div>
@@ -17,6 +21,7 @@
 <script>
 import ECharts from 'vue-echarts/components/ECharts'
 import TopNav from './components/TopNav'
+import LeftNav from './components/LeftNav'
 import EchartsDemo from './components/EchartsDemo'
 import YesOrNo from './components/YesOrNo'
 
@@ -30,18 +35,26 @@ import YesOrNo from './components/YesOrNo'
 import Vue from 'vue'
 
 Vue.component('chart', ECharts)
+
 export default {
   name: 'app',
   components: {
     'echarts-demo': EchartsDemo,
     'top-nav': TopNav,
+    'left-nav': LeftNav,
     'yes-or-no': YesOrNo
   }
 }
 </script>
 
 <style>
-body {
-  margin: 0;
-}
+  /*.box-card {
+    width: 480px;
+  }*/
+  body {
+    margin: 0;
+  }
+  .blow-top-nav {
+    padding: 10px 0;
+  }
 </style>

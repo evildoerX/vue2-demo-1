@@ -1,13 +1,13 @@
 <template>
-<div>
-  <el-form ref="form" :model="yesno" label-width="80px">
-    <el-form-item label="问题:">
-      <el-input v-model="yesno.question"></el-input>
-      <p v-bind:style="{ color: yesno.answerColor }">{{ yesno.answer }}</p>
-      <img :src="yesno.img">
-    </el-form-item>
-  </el-form>
-</div>
+  <div>
+    <el-form ref="form" :model="yesno" label-width="80px">
+      <el-form-item label="问题:">
+        <el-input v-model="yesno.question"></el-input>
+        <p v-bind:style="{ color: yesno.answerColor }">{{ yesno.answer }}</p>
+        <img :src="yesno.img">
+      </el-form-item>
+    </el-form>
+  </div>
 </template>
 
 <script>
@@ -15,6 +15,7 @@ import _ from 'lodash'
 import axios from 'axios'
 
 export default {
+  props: ['msg'],
   data: function () {
     return {
       yesno: {
@@ -27,7 +28,6 @@ export default {
   },
   watch: {
     'yesno.question': function (newQuestion) {
-      console.log(this)
       this.yesno.answer = '正在等你停止输入'
       this.yesno.img = ''
       this.getAnswer()
@@ -60,5 +60,5 @@ export default {
 }
 </script>
 <style>
-    
+
 </style>
