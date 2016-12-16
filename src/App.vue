@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <top-nav></top-nav>
-    <el-row type="flex" class="row-bg blow-top-nav" justify="space-around">
-      <el-col :span="3">
+    <el-row type="flex" :gutter="40" class="row-bg blow-top-nav" justify="space-around">
+      <el-col :span="4">
         <left-nav></left-nav>
       </el-col>
       <el-col :span="20">
@@ -24,7 +24,6 @@ import TopNav from './components/TopNav'
 import LeftNav from './components/LeftNav'
 import EchartsDemo from './components/EchartsDemo'
 import YesOrNo from './components/YesOrNo'
-
 // 引入
 // import { Loading } from 'element-ui'
 
