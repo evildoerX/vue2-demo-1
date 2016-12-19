@@ -1,15 +1,15 @@
 <template>
-  <div class="topnav">
-    <el-menu default-active="1" class="el-menu-demo" mode="horizontal" :router=true>
-      <el-menu-item index="/">我的实验室</el-menu-item>
+  <div>
+    <el-menu default-active="1" class="el-menu-demo topnav" mode="horizontal" :router=true theme="dark">
+      <el-menu-item index="home">Home</el-menu-item>
+      <el-menu-item index="question" to="">问答</el-menu-item>
       <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3"></el-menu-item>
+        <template slot="title">第三方组件</template>
+        <el-menu-item index="charts">Echarts</el-menu-item>
+        <el-menu-item index="login">Not Found</el-menu-item>
       </el-submenu>
-      <el-menu-item index="/yes-or-no" to="">？？?</el-menu-item>
     </el-menu>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -20,4 +20,7 @@ export default {
 </script>
 
 <style>
+  body {
+     margin: 0
+  }
 </style>

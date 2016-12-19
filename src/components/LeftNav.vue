@@ -1,19 +1,25 @@
 <template>
-  <div class="left-nav">
-    <el-menu default-active="">
-        <el-submenu index="1">
-        <template slot="title">导航一</template>
-        <el-menu-item-group title="分组一">
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        </el-submenu>
-        <el-menu-item index="2">导航二</el-menu-item>
-        <el-menu-item index="3">导航三</el-menu-item>
-    </el-menu>
+  <div>
+    <el-row type="flex" class="row-bg" justify="space-around">
+      <el-col :span="3">
+        <el-menu :router=true>
+          <el-submenu index="1">
+          <template slot="title">导航一</template>
+          <el-menu-item-group title="测试左侧导航">
+              <el-menu-item index="/charts">三方库</el-menu-item>
+              <el-menu-item index="/question">相同index</el-menu-item>
+          </el-menu-item-group>
+          </el-submenu>
+          <el-menu-item index="/question">相同index</el-menu-item>
+          <el-menu-item index="3">Not Found</el-menu-item>
+        </el-menu>
+      </el-col>
+      <el-col :span="21">
+        <el-card class="box-card">
+          <router-view></router-view>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -24,4 +30,7 @@ export default {
 </script>
 
 <style>
+/*.else {
+  margin: 10 10 10 10;
+}*/
 </style>
