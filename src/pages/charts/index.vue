@@ -20,7 +20,7 @@
 <script>
 // import axios from 'axios'
 import Vue from 'vue'
-import ECharts from 'vue-echarts/components/ECharts'
+import ECharts from 'vue2-echarts/src/ECharts/ECharts.vue'
 Vue.component('chart', ECharts)
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
