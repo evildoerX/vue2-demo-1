@@ -1,6 +1,5 @@
-# vue-with-echarts
-
-> A Vue.js project, 尝试集成echarts并深入开发，计划使用vuex
+# vue2 demo
+> A Vue.js project, vue2 + vue-router + vuex,  Third Part Components: [`lodash`](https://github.com/lodash/lodash), [`axios`](https://github.com/mzabriskie/axios), [`nprogress`](https://github.com/rstacruz/nprogress), [`vue2-echarts`](https://www.npmjs.com/package/vue2-echarts).
 
 ## Build Setup
 
@@ -8,7 +7,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at 0.0.0.0:8080
 npm run dev
 
 # build for production with minification
