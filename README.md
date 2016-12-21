@@ -1,5 +1,10 @@
-# vue2 demo
+
+## vue2 demo
 > A Vue.js project, vue2 + vue-router + vuex,  Third Part Components: [`lodash`](https://github.com/lodash/lodash), [`axios`](https://github.com/mzabriskie/axios), [`nprogress`](https://github.com/rstacruz/nprogress), [`vue2-echarts`](https://www.npmjs.com/package/vue2-echarts).
+
+![image](https://github.com/tmpbook/vue2-demo/blob/master/doc/img/Demo.png)
+
+
 
 ## Build Setup
 
