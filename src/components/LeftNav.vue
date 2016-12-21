@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row type="flex" class="row-bg" justify="space-around">
-      <el-col :span="3">
+      <!--<el-col :span="3">
         <el-menu :router=true>
           <el-submenu index="1">
           <template slot="title">导航一</template>
@@ -13,11 +13,9 @@
           <el-menu-item index="/question">相同index</el-menu-item>
           <el-menu-item index="3">Not Found</el-menu-item>
         </el-menu>
-      </el-col>
-      <el-col :span="21">
-        <el-card class="box-card">
-          <router-view></router-view>
-        </el-card>
+      </el-col>-->
+      <el-col :span="24" class="nav_else">
+        <router-view></router-view>
       </el-col>
     </el-row>
   </div>
@@ -30,7 +28,7 @@ export default {
 </script>
 
 <style>
-/*.else {
-  margin: 10 10 10 10;
-}*/
+.nav_else {
+  padding: 10px;
+}
 </style>
