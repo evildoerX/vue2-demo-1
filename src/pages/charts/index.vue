@@ -258,9 +258,11 @@ export default {
   },
   beforeUpdate () {
     console.log('Charts Component beforeUpdate!')
+    NProgress.start()
   },
   updated () {
     console.log('Charts Component updated!')
+    NProgress.done()
   },
   beforeDestroy () {
     console.log('Charts Component beforeDestroy!')
