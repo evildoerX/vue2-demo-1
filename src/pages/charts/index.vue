@@ -12,6 +12,7 @@
               <el-radio-button v-for="key in keys" :label=key></el-radio-button>
             </el-radio-group>
             <hr>
+            <span style="color:darkcyan">{{ tips }}</span>
           </el-col>
         </el-row>
       </el-col>
@@ -19,8 +20,6 @@
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span style="line-height: 36px;">{{ state }}</span>
-            <br>
-            <span style="float: right;">{{ tips }}</span>
           </div>
           <pre class='polar_code'>{{ polar }}</pre>
         </el-card>
@@ -32,6 +31,7 @@
 <style>
 .polar_code {
   font-size: 15px;
+  color:darkcyan;
 }
 </style>
 
