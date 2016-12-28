@@ -1,8 +1,10 @@
 <template>
   <div>
-    <el-row v-loading.fullscreen.lock="fullscreenLoading">
+    <el-row v-loading.fullscreen.lock="fullscreenLoading" element-loading-text="加载中">
       <el-col :span="18" v-if="keys">
         
+        <h3>美国各大洲人口数量 时间序列 DataFrame</h3>
+
         <el-row>
           <el-col :span="24">
             <chart v-if=polar :options=polar ref="p"></chart>
@@ -12,7 +14,7 @@
 
         <el-row type="flex" class="row-bg" justify="space-around">
           <el-col :span="11">
-            <h2>Frequency</h2>
+            <h3>Frequency</h3>
             <el-select v-model="resample_alias" clearable placeholder="请选择">
               <el-option
                 v-for="item in sample_alias"
@@ -23,7 +25,7 @@
             <h2 style="color:darkcyan">{{ tips }}</h2>
           </el-col>
           <el-col :span="11">
-            <h2>States of U.S.</h2>
+            <h3>States of U.S.</h3>
             <el-radio-group v-model="state">
               <el-radio-button v-for="key in keys" :label=key></el-radio-button>
             </el-radio-group>
