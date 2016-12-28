@@ -2,28 +2,47 @@
   <div>
     <el-row v-loading.fullscreen.lock="fullscreenLoading">
       <el-col :span="18" v-if="keys">
+        
         <el-row>
           <el-col :span="24">
             <chart v-if=polar :options=polar ref="p"></chart>
           </el-col>
-          <el-col :span="24">
-            <hr>
+        </el-row>
+        <hr>
+
+        <el-row type="flex" class="row-bg" justify="space-around">
+          <el-col :span="11">
+            <h2>Frequency</h2>
+            <el-select v-model="resample_alias" clearable placeholder="请选择">
+              <el-option
+                v-for="item in sample_alias"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+            <h2 style="color:darkcyan">{{ tips }}</h2>
+          </el-col>
+          <el-col :span="11">
+            <h2>States of U.S.</h2>
             <el-radio-group v-model="state">
               <el-radio-button v-for="key in keys" :label=key></el-radio-button>
             </el-radio-group>
             <hr>
-            <span style="color:darkcyan">{{ tips }}</span>
           </el-col>
         </el-row>
+
       </el-col>
+      
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span style="line-height: 36px;">{{ state }}</span>
+            <el-tag style="float: right;">{{ resample_alias? resample_alias : 'None'}}</el-tag>
           </div>
           <pre class='polar_code'>{{ polar }}</pre>
         </el-card>
       </el-col>
+
     </el-row>
   </div>
 </template>
@@ -49,14 +68,32 @@ export default {
       state: 'AK',
       keys: null,
       polar: null,
+      resample_alias: null,
       fullscreenLoading: true,
-      tips: 'Pick one...'
+      tips: 'Pick one...',
+      sample_alias: [{
+        value: 'AS',
+        label: 'Year start frequency'
+      }, {
+        value: 'A',
+        label: 'Year end frequency'
+      }, {
+        value: 'MS',
+        label: 'Month start frequency'
+      }, {
+        value: 'M',
+        label: 'Month end frequency'
+      }]
     }
   },
   watch: {
     state () {
       this.tips = 'Waiting...'
       this.loadStateData(this.state)
+    },
+    resample_alias () {
+      this.tips = 'Waiting...'
+      this.loadStateData()
     }
   },
   methods: {
@@ -68,12 +105,13 @@ export default {
     },
     loadStateData:
       _.debounce(
-        function (state) {
+        function () {
           let vm = this
           vm.tips = 'Loading...'
           axios.get('http://127.0.0.1:8000/quandl_analysis/test/', {
             params: {
-              'state': state
+              'state': vm.state,
+              'resample_alias': vm.resample_alias
             }
           })
           .then(function (response) {
@@ -81,7 +119,7 @@ export default {
             vm.polar.xAxis.data = response.data.index
             vm.polar.series.data = response.data.value
             vm.polar.series.name = response.data.title
-            vm.tips = 'Done...'
+            vm.tips = 'Done'
           })
           .catch(function (error) {
             console.log(error)
@@ -101,7 +139,7 @@ export default {
     var vm = this
     axios.get('http://127.0.0.1:8000/quandl_analysis/test/', {
       params: {
-        'state': this.state
+        state: vm.state
       }
     })
     .then(function (response) {
