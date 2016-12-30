@@ -15,6 +15,14 @@ export default [
             component: resolve => require(['../pages/charts'], resolve)
           },
           {
+            path: 'describe',
+            component: resolve => require(['../pages/charts/std'], resolve)
+          },
+          {
+            path: 'highcharts',
+            component: resolve => require(['../pages/charts/highcharts'], resolve)
+          },
+          {
             path: 'question',
             component: resolve => require(['../pages/question'], resolve)
           },

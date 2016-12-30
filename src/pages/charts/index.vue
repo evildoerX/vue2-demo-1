@@ -41,7 +41,7 @@
             <span style="line-height: 36px;">{{ state }}</span>
             <el-tag style="float: right;">{{ resample_alias? resample_alias : 'None'}}</el-tag>
           </div>
-          <pre class='polar_code'>{{ polar }}</pre>
+          <pre class='polar_code' v-if=polar>{{ polar.series }}</pre>
         </el-card>
       </el-col>
 

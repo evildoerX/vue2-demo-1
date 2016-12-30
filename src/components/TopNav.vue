@@ -5,7 +5,9 @@
       <el-menu-item index="/question" to="">问答</el-menu-item>
       <el-submenu index="2">
         <template slot="title">第三方组件</template>
-        <el-menu-item index="/charts">Echarts</el-menu-item>
+        <el-menu-item index="/charts">Echarts line</el-menu-item>
+        <el-menu-item index="/describe">Echarts bar</el-menu-item>
+        <el-menu-item index="/highcharts">Highcharts</el-menu-item>
         <el-menu-item index="/login">Not Found</el-menu-item>
       </el-submenu>
     </el-menu>
